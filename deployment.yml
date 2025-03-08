@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: todo-list-deployment
+  name: todo-project-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: todo-list
+      app: todo-project
   template:
     metadata:
       labels:
-        app: todo-list
+        app: todo-project
     spec:
       containers:
-      - name: todo-list-container
+      - name: todo-project-container
         image: todo-list-image
         ports:
         - containerPort: 8000
