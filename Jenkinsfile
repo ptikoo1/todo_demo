@@ -7,14 +7,10 @@ pipeline {
     }
 
     stages {
-	stage('Prepare1') {
+	stage('Prepare') {
             steps {
                 sh 'export PATH=$PATH:/usr/bin'
-            }
-        }
-	stage('Prepare2') {
-            steps {
-                sh '''
+		sh '''
                     if ! which docker; then
                         apt-get update && apt-get install -y docker.io
                     fi
