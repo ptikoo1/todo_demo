@@ -6,6 +6,11 @@ pipeline {
         }
     }
     stages {
+	stage('Prepare') {
+            steps {
+                sh 'docker ps' // This should list running containers within the dind container
+            }
+        }
 	stage('Build') {
             steps {
                 // Build the Docker image
