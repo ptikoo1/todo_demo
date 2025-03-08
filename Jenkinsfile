@@ -8,7 +8,7 @@ pipeline {
     stages {
 	stage('Prepare') {
             steps {
-                sh 'docker ps' // This should list running containers within the dind container
+                sh 'echo $PATH' // This should list running containers within the dind container
             }
         }
 	stage('Build') {
