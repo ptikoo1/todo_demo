@@ -2,7 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Prepare') {
+            steps {
+                sh 'apt-get update && apt-get install -y docker.io'
+            }
+        }
+	stage('Build') {
             steps {
                 // Build the Docker image
                 sh 'docker build -t todo-list-image .'
