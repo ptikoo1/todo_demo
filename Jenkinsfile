@@ -4,7 +4,7 @@ pipeline {
     stages {
 	stage('Prepare') {
             steps {
-                sh 'echo $PATH' // This should list running containers within the dind container
+                sh 'export PATH=$PATH:/usr/bin'
             }
         }
 	stage('Build') {
