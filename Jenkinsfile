@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'docker:dind'
+            args '-u root -v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
 
     stages {
 	stage('Prepare') {
