@@ -1,13 +1,11 @@
 pipeline {
-    agent any
-
-    stages {
-        stage('Prepare') {
-            steps {
-                sh 'sudo apt-get clean'
-		sh 'sudo apt-get update && sudo apt-get install -y docker.io'
-            }
+    agent {
+        docker {
+            image 'docker:dind'
+            args '-u root -v /var/run/docker.sock:/var/run/docker.sock'
         }
+    }
+    stages {
 	stage('Build') {
             steps {
                 // Build the Docker image
